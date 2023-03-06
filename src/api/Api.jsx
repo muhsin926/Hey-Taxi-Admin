@@ -1,1 +1,1 @@
-    export default 'http://localhost:3001'
+    export default 'https://www.server.gadsto.store'
