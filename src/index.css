@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.paginationBttns {
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.paginationBttns a {
+  padding:  5px 10px ;
+  border-radius: 3px;
+  border: 1px solid orange;
+  color: white;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: orange;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: orange;
+}
+
+.paginationDisabled a {
+  display: none;
+}
+
+
+.arc:before {
+  -webkit-animation: spin 0.5s infinite linear;
+  animation: spin 0.5s infinite linear;
+  border-radius: 100%;
+  border-top: 6px solid var(--primary, #fff);
+  content: '';
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.mainCard {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+
+}
+
+.btmBorder {
+  padding-bottom: 20px;
+  border-bottom: .3rem solid;
+
+}
+
+:root {
+  font-family: 'poppins', sans-serif;
+}
+
+.hoverBack:hover {
+  background-color: rgb(255, 255, 255);
+  @apply shadow-lg
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions>svg {
+  margin-right: 0.25rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+
+input[type="text"],
+input[type="password"],
+input::-webkit-input-placeholder {
+  font-size: medium;
+}
+
+button,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 19px;
+  padding: 0.30rem;
+  border-radius: 0.5rem;
+}
+
+
+
+button {
+  padding: 0.5rem;
+}
