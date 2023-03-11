@@ -5,6 +5,7 @@ import DriverManagementPage from "./pages/DriverManagementPage";
 import EarningsPage from "./pages/EarningsPage";
 import LoginPage from "./pages/LoginPage";
 import PassangerPage from "./pages/PassangerPage";
+import TripManagePage from "./pages/TripManagePage";
 import VehicleCategoryPage from "./pages/VehicleCategoryPage";
 import VehiclePage from "./pages/VehiclePage";
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/passenger" element={<PassangerPage />} />
           <Route path="/vehicle_category" element={<VehicleCategoryPage />} />
           <Route path="/earnings" element={<EarningsPage />} />
+          <Route path="/trip_manage" element={<TripManagePage />} />
         </Routes>
       </Router>
     </div>

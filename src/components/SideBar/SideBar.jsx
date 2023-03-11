@@ -9,6 +9,7 @@ const navigation = [
   { name: "Vehicles", href: "/vehicle", current: true },
   { name: "Vehicle Category", href: "/vehicle_category", current: false },
   { name: "Earnings", href: "/earnings", current: false },
+  { name: "Trip Manage", href: "/trip_manage", current: false },
 ];
 
 const SideBar = () => {
@@ -17,6 +18,7 @@ const SideBar = () => {
     <div className="">
       {navigation.map((data) => (
         <Button
+        key={data.name}
           style={
             "rounded-md p-2 w-full text-base font-medium hover:bg-slate-100 hover:text-black mb-3"
           }

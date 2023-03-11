@@ -27,9 +27,25 @@ const Earnings = () => {
     ],
   };
 
+  const options = {
+    scales: {
+      yAxes: [{
+        ticks: {
+          fontColor: ['white']
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: ['white']
+        }
+      }]
+    }
+  };
+
+
   return (
     <div>
-      <Bar data={data} />
+      <Bar data={data} options={options} />
     </div>
   );
 };

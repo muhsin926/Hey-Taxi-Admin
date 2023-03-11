@@ -8,17 +8,13 @@ import { ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
 const Passenger = () => {
   const [passengers, setPassengers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [pageNumber, setPageNumber] = useState(0)
-  const [search, setSearch] = useState('')
+  const [pageCount, setPageCount] = useState(0)
 
-  const usersPerPage = 5;
-  const pageVisited = pageNumber * usersPerPage;
-  const pageCount = Math.ceil(passengers.length / usersPerPage)
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
+    getPassengers(selected);
   }
 
-  const displayRows = passengers?.slice(pageVisited, pageNumber + usersPerPage)
+  const displayRows = passengers
     .map((passenger) => {
       return (
         <tr className="hover:bg-gray-900">
@@ -65,28 +61,16 @@ const Passenger = () => {
       )
     })
 
-  const getPassengers = async () => {
-    const { data } = await axios.get(`${url}/api/admin/passenger`);
+  const getPassengers = async (page) => {
+    const { data } = await axios.get(`${url}/api/admin/passenger?page=${page}`);
     setPassengers(data.passenger);
+    setPageCount(data.pageCount);
   };
 
   useEffect(() => {
-    if (search == '') {
-    }
     getPassengers();
   }, [isLoading]);
 
-  const searching = () => {
-    const data = passengers.filter((info) => info.name.includes(search))
-    setPassengers(data)
-  }
-
-  useEffect(() => {
-    searching()
-    if (search == '') {
-      getPassengers()
-    }
-  }, [search])
 
   const updateUser = async (id, block) => {
     setIsLoading(true);
@@ -118,7 +102,6 @@ const Passenger = () => {
                 id="hs-table-search"
                 className="block w-full p-3 pl-10 text-sm bg-zinc-600 border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Search..."
-                value={search}
                 onChange={e => setSearch(e.target.value)}
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -187,7 +170,7 @@ const Passenger = () => {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black">
-                     {displayRows}
+                      {displayRows}
                     </tbody>
                   </table>
                 </div>
